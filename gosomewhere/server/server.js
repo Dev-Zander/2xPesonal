@@ -6,6 +6,9 @@ const Auth0Strategy = require('passport-auth0')
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const checkForSession = require('../server/middlewares/checkForSessions');
+const loginController = require('./controllers/loginController');
+const tripsController = require('./controllers/tripsController');
+const userController = require('./controllers/userController');
 
 
 const {
@@ -75,7 +78,10 @@ passport.deserializeUser((id, done) => {
         return done(null, res[0])
     })
 })
-
+app.post('/api/updateuserprofile', userController.updateProfile)
+app.get('/api/getuserprofile', userController.getUserProfile)
+app.get(`/api/getusertrips`, tripsController.getTrips)
+app.get('/api/destroy', loginController.destroy)
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: `${process.env.HOMEPAGE}#/dashboard`,
