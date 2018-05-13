@@ -25,14 +25,26 @@ module.exports = {
         })
     },
     inviteTraveler:(req,res,next)=>{
-        const db = req.app.get('db')
-        db.findbyemail([req.params.email]).then(travelers =>{
-            if(!travelers[0]) {
-                
-            }
-        })
-        db.addTraveler([req.params.email, req.params.tripID]).then(response =>{
-            res.status(200).send(response)
-        })
+      let email = req.params.email.toUpperCase()
+      let trip = req.params.tripID
+      const db = req.app.get('db')
+      db.findbyemail([email]).then(response =>{
+          if(!response[0]){
+              db.addToTrip([email]).then(response =>{
+                  db.addTravelers([trip, response[0].id]).then(response =>{
+                      res.status(200).send(true)
+                  })
+                 
+              })
+          }
+          else if(response[0]){
+              db.addTravelers([trip, response[0].id]).then(response =>{
+                  res.status.send(true)
+              })
+          }
+          
+      })
+
+
     }
 }
