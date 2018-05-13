@@ -4,6 +4,7 @@ import Login from './components/login';
 import Header from './components/header';
 import Dashboard from './components/dashboard';
 import EditProfile from './components/editprofile';
+import TripDetails from './components/tripdetails';
 
 
 export default (
@@ -15,6 +16,7 @@ export default (
           <Route path='/header' component={Header}/>
           <Route path='/dashboard' component={Dashboard}/>
           <Route path='/editprofile' component={EditProfile}/>
+          <Route path='/tripdetails' component={TripDetails}/>
         </div>
     </HashRouter>
 )

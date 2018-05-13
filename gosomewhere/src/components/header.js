@@ -17,8 +17,8 @@ class Header extends Component {
         </div>
 
         <div className="icon-box">
-          <div className="icon">Home</div>
-          <Link to='/editprofile'><div className="icon">Profile</div></Link>
+          <Link to='/dashboard'> <div className="icon">Home</div> </Link>
+          <Link to='/editprofile'><div className="icon">Profile</div> </Link>
           <a href={'http://localhost:3210/api/destroy'} className="logout-text"><div className="icon">Logout</div></a>
         </div>
 

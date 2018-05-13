@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header';
 
+
 class EditProfile extends Component {
     constructor(props) {
         super(props)
@@ -179,10 +180,10 @@ class EditProfile extends Component {
                     <div className="edit-profile-button-container">
 
                         <div className="edit-profile-button">
-                            <button className="cancel-button">Cancel</button>
+                          <Link to='/dashboard' > <button className="cancel-button">Cancel</button> </Link>
                         </div>
                         <div className="edit-profile-button">
-                            <button onClick={() => this.updateProfile()} className="save-button">Save</button>
+                           <Link to='/dashboard'> <button onClick={() => this.updateProfile()} className="save-button">Save</button></Link>
                         </div>
 
                     </div>

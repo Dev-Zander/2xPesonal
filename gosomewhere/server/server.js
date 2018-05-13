@@ -24,18 +24,18 @@ const {
 
 const app = express();
 
-massive(CONNECTION_STRING).then(db =>{
+massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
 })
 
 app.use(bodyParser.json())
 
 app.use(session({
-    secret:SESSION_SECRET,
-    resave:false,
-    saveUninitialized:true,
-    cookie:{
-        maxAge:300000,
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 300000,
         httpOnly: true
     }
 }))
@@ -54,8 +54,14 @@ passport.use(new Auth0Strategy({
 },
     function (accessToken, refreashToken, extraParams, profile, done) {
         const db = app.get('db')
-        db.find_user([profile.id]).then(users => {
-            if (!users[0]) {
+        let newEmail = profile.displayName.toUpperCase()
+        db.find_user([newEmail]).then(users => {
+            if (newEmail) {
+                db.insertUser([profile.id, newEmail]).then(res => {
+                    return done(null, profile.id)
+                })
+            }
+            else if (!users[0]) {
                 db.create_user([profile.displayName, profile.id]).then(res => {
                     return done(null, res[0].auth_id)
                 })
@@ -65,6 +71,7 @@ passport.use(new Auth0Strategy({
         })
 
     }
+
 ))
 
 passport.serializeUser((id, done) => {
@@ -72,20 +79,24 @@ passport.serializeUser((id, done) => {
 })
 
 passport.deserializeUser((id, done) => {
-    
+
     app.get('db').find_user([id]).then(res => {
-        
+
         return done(null, res[0])
     })
 })
+
+app.post('/api/inviteToTrip/:email/:tripID', tripsController.inviteTraveler)
 app.post('/api/updateuserprofile', userController.updateProfile)
+app.get(`/api/getTravelers/:id`, tripsController.getTravelers)
 app.get('/api/getuserprofile', userController.getUserProfile)
 app.get(`/api/getusertrips`, tripsController.getTrips)
 app.get('/api/destroy', loginController.destroy)
+app.get('/api/getTripDetails/:id', tripsController.getTripDetails)
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: `${process.env.HOMEPAGE}#/dashboard`,
     failureRedirect: `${process.env.HOMEPAGE}`
 }))
 
-app.listen(SERVER_PORT, ()=> console.log(`Listening on port: ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Listening on port: ${SERVER_PORT}`))

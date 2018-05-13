@@ -1,17 +1,19 @@
 //APP INITIALSTATE
-//let initialState = {
-//      initalStateItem:''
-//}
+let initialState = {
+    tripID: 656,
+    test: 'This is a test'
+}
 
 
 //CONST VARIABLES
-//NEW_CASE_NAME = 'NEW_CASE_NAME'
+const
+CURRENT_TRIPID = 'CURRENT_TRIPID'
 
 
 //REDUCER EXAMPLE
 //export default function reducer(state = initialState, action){
 //     switch(action.type){
-//         case NEW_CASE_NAME
+//         case NEW_CASE_NAME:
 //         let newVariable = object.assign({}, state, {intialStateItem : action.payload})
 //         return newVariable
 //
@@ -20,7 +22,17 @@
 //     return state
 //     }
 // }
+export default function reducer(state = initialState, action){
+    switch (action.type){
+        case CURRENT_TRIPID:
+        let newTripID = Object.assign({}, state, {tripID: action.payload})
+        return newTripID
 
+        default:
+            return state
+
+    }
+}
 
 
 // ACTION CREATOR
@@ -31,10 +43,11 @@
 //     }
 // } 
 
-
-//TEMPORARY EXPORT DEFAULT - DELETE WHEN FIRST REDUCER IS ADDED.
-export default function reducer(value){
-    return 'This is just a placeholding function, delete after adding a working function.'
+export function getTripDetails(value){
+    return {
+        type: CURRENT_TRIPID,
+        payload: value
+    }
 }
 
 
