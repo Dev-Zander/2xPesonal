@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from '../media/xrossTrekLogo.png';
 import Header from './header';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -41,12 +40,12 @@ class Dashboard extends Component {
                 <div key={index} className="list-of-upcoming-trips">
                 <div className="trip-name">{trip.trip_name}</div>
                 <div className="trip-dates">
-                <span>
-                <span>Trip Start</span>
-                {trip.trip_start}</span>
-                <span>
-                <span>Trip End</span>
-                {trip.trip_end}</span>
+                <div className="trip-start-date">
+                <div className="div-start-text">Trip Start</div>
+                {trip.trip_start}</div>
+                <div className="trip-start-date">
+                <div className="div-end-text">Trip End</div>
+                {trip.trip_end}</div>
                 </div>
                 <div className="upcoming-trips-buttons">
                <Link to='/tripdetails'> <span><button className="trip-details-button" onClick={(e)=>{this.props.getTripDetails(e.target.value)}} value={trip.id}>Trip Details</button></span></Link>
@@ -60,9 +59,11 @@ class Dashboard extends Component {
         return(
             <div className="dashboard-container">
             <Header/>
+            <div className="dashboard-container-list">
             {upComingTripList}
             {this.state.upcomingError}
-            </div>
+           </div> 
+           </div>
         )
     }
 }

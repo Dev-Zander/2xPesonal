@@ -9,6 +9,7 @@ const checkForSession = require('../server/middlewares/checkForSessions');
 const loginController = require('./controllers/loginController');
 const tripsController = require('./controllers/tripsController');
 const userController = require('./controllers/userController');
+const path = require('path');
 
 
 const {
@@ -24,6 +25,12 @@ const {
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
+
+// app.get('*', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '../build/index.html'));
+// });
+
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
 })
@@ -35,7 +42,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 300000,
+        maxAge: 900000,
         httpOnly: true
     }
 }))
@@ -86,8 +93,13 @@ passport.deserializeUser((id, done) => {
     })
 })
 
+app.delete('/api/deleteTrip/:tripID', tripsController.deleteTrip)
+app.delete('/api/leaveTrip/:tripID', tripsController.leaveTrip)
+app.post('/api/create/newTrip', tripsController.createTrip)
+app.post('/api/create/updateTrip', tripsController.updateTrip)
 app.post('/api/inviteToTrip/:email/:tripID', tripsController.inviteTraveler)
 app.post('/api/updateuserprofile', userController.updateProfile)
+app.get('/api/getcurrentUser', userController.getUserProfile)
 app.get(`/api/getTravelers/:id`, tripsController.getTravelers)
 app.get('/api/getuserprofile', userController.getUserProfile)
 app.get(`/api/getusertrips`, tripsController.getTrips)

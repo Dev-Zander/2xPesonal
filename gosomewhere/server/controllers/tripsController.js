@@ -11,7 +11,6 @@ module.exports = {
     },
 
     getTripDetails: (req, res, next) => {
-        console.log('Hit')
         const db = req.app.get('db')
         db.getTripDetails([req.params.id]).then(response =>{
             res.status(200).send(response)
@@ -46,5 +45,32 @@ module.exports = {
       })
 
 
+    },
+    createTrip:(req,res,next)=>{
+        const db = req.app.get('db')
+        const {tripName, country, city, state, start, end, desc} = req.body;
+        db.createNewTrip([req.user.id, tripName, country, city, state, start, end, desc]).then(response =>{
+            db.addTravelers([response[0].id, response[0].trip_owner_id])
+            res.status(200).send('Trip Added')
+        })
+    },
+    updateTrip:(req,res,next)=>{
+        console.log(req.body)
+        const db = req.app.get('db')
+        db.updateTrip([req.body.tripID, req.body.tripName ,req.body.country, req.body.city, req.body.state, req.body.start, req.body.end, req.body.desc]).then(response=>{
+            res.status(200).send('Update Successfull!')
+        })
+    },
+
+    leaveTrip:(req,res,next)=>{
+        const db = req.app.get('db')
+        console.log(req.params)
+        db.leaveTrip([req.params.tripID, req.user.id]).then(response =>{
+            res.status(200).send('User Left Trip')
+        })
+    },
+    deleteTrip:(req, res, next) =>{
+        const db = req.app.get('db')
+        db.deleteTrip([req.params.tripID])
     }
 }

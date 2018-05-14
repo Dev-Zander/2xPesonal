@@ -1,13 +1,14 @@
 //APP INITIALSTATE
 let initialState = {
-    tripID: 656,
-    test: 'This is a test'
+    tripID: 0,
+    travelerID:0,
 }
 
 
 //CONST VARIABLES
 const
-CURRENT_TRIPID = 'CURRENT_TRIPID'
+CURRENT_TRIPID = 'CURRENT_TRIPID',
+CURRENT_TRAVELERID = 'CURRENT_TRAVELERID'
 
 
 //REDUCER EXAMPLE
@@ -28,6 +29,12 @@ export default function reducer(state = initialState, action){
         let newTripID = Object.assign({}, state, {tripID: action.payload})
         return newTripID
 
+    
+        case CURRENT_TRAVELERID:
+        let newTravelerID = Object.assign({}, state, {travelerID: action.payload})
+        return newTravelerID
+    
+
         default:
             return state
 
@@ -46,6 +53,13 @@ export default function reducer(state = initialState, action){
 export function getTripDetails(value){
     return {
         type: CURRENT_TRIPID,
+        payload: value
+    }
+}
+
+export function getTravelerDetails(value){
+    return {
+        type: CURRENT_TRAVELERID,
         payload: value
     }
 }

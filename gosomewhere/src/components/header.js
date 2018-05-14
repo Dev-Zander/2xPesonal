@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import logo from '../media/xrossTrekLogo.png';
 import {Link} from 'react-router-dom';
 
@@ -18,8 +19,11 @@ class Header extends Component {
 
         <div className="icon-box">
           <Link to='/dashboard'> <div className="icon">Home</div> </Link>
+          <Link to='/newtrip'><div className="icon">Create Trip</div></Link>
           <Link to='/editprofile'><div className="icon">Profile</div> </Link>
-          <a href={'http://localhost:3210/api/destroy'} className="logout-text"><div className="icon">Logout</div></a>
+
+          <a href={`${process.env.REACT_APP_API_LOGIN}/api/destroy`} className="logout-text"><div className="icon">Logout</div></a>
+          {/* <a href={'http://localhost:3210/api/destroy'} className="logout-text"><div className="icon">Logout</div></a> */}
         </div>
 
       </div>

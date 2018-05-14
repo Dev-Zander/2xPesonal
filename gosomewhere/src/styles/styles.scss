@@ -157,5 +157,500 @@ a{
     }
 
 }
+.header{
+    display: flex;
+    align-items: left;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+    background-color: rgb(78, 42, 42);
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+ 
+}
+.icon-box{
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    padding-left: 10px;
+    @include largePhone{
+        padding-left: 1px;
+        font-size: 13px;
+    }
+    @include smallPhone{
+        padding-left: 1px;
+        font-size: 11px;
+    }
+  
 
+    .icon{
+    
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+        color: whitesmoke;
 
+    }
+}
+
+.header-logo{
+    height: 100px;
+    width: 100px;
+    @include largePhone{
+        height: 50px;
+        width: 50px;
+    }
+}
+.dashboard-container{
+    background-color: rgba(128, 128, 128, 0.209);
+    height: 100vh;
+    width: 100vw;
+    @include smallPhone{
+        height: 160vh;
+    }
+    
+    
+    
+}
+.dashboard-container-list{
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+    
+}
+.list-of-upcoming-trips{
+    
+    height: 230px;
+    width: 150px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 15px;
+    margin-left: 15px;
+    padding-top:20px;
+    padding-bottom: 5px;
+    background-color: whitesmoke;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+    @include smallPhone{
+        margin-left: 85px;
+    }
+
+    .trip-name{
+        font-family: 'Kanit', sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    
+    .trip-dates{
+        font-family: 'Kanit', sans-serif;
+        margin-left: 25px;
+        margin-top: 5px;
+        font-size: 13px;
+    
+        
+    }
+    .trip-details-button{
+        height: 30px;
+        width: 90px;
+        color: white;
+        font-size: 12px;
+        background-image: radial-gradient(circle at 10%-96%,silver, blue);
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+        margin-left: 28px;
+        margin-top: 10px;
+
+    }
+}
+
+.list-of-travelers-container{
+    margin-left: 530px;
+    margin-top: -346px;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+    width: 210px;
+    align-items: center;
+    align-content: center;
+    padding-left: 5px;
+    @include largePhone{
+        margin-left: 80px;
+        margin-top: 20px;
+    @include smallPhone{
+        margin-left: 55px;
+        margin-top: 20px;
+    }
+    }
+    
+}
+.list-of-travelers{
+    
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+
+    color: blue;
+    .travelers-last-name{
+        margin-left:10px;
+        margin-bottom: px;
+       
+    }
+   
+} 
+.travelers-first-name{
+            margin-left: 10px;
+        }
+.trip-details-container{
+    color: red;
+    
+}
+.trip-details-container{
+    color: black;
+  
+    
+}
+.trip-detail-title{
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 25px;
+
+    
+}
+.trip-detail-title2{
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 25px;
+    padding-top: 10px;
+
+    
+}
+.trip-detail-title3{
+    font-weight: 200px;
+    font-size: 17px;
+    margin-left: 25px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 175px;
+    margin-top: -33px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.trip-detail-input{
+            font-size: 13px;
+            height: 25px;
+            width: 200px;
+            margin-left:30px; 
+        }
+        .trip-detail-input-desc{
+            height: 50px;
+            width:  200px;;
+            margin-left:30px; 
+            overflow-wrap:break-word;
+        }
+   .edit-detail-container{
+       margin-left: 100px;
+       margin-top:10px;
+       box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+       width: 275px;
+   }
+   .edit-detail-container2{
+    margin-left: 100px;
+    margin-top:10px;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+    width:400px;
+    height: 350px;
+    @include largePhone{
+        margin-left: 37px;
+        height: 500px;
+        width: 300px;
+        padding-top: 30px;
+    }
+    @include smallPhone{
+        margin-left: 10px;
+        height: 500px;
+        width: 300px;
+        padding-top: 30px;
+    }
+}
+   .modify-trip{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+    margin-left: -10px;
+ 
+   }
+   .save-change-button{
+    height: 30px;
+    width: 107px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: radial-gradient(circle at 10%-96%,silver, blue);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    margin-left: 35px;
+    margin-top: 10px;
+   }
+   .cancel-change-button{
+    font-weight: bold;
+    height: 30px;
+    width: 107px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    margin-left: 10px;
+    margin-top: 10px;
+   }
+.new-user-email{
+    margin-left: 533px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: inherit;
+}   
+.invite-user-button{
+    
+    margin-top:8px;
+    margin-left: 570px;
+    font-weight: bold;
+    height: 35px;
+    width: 135px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    @include largePhone{
+        margin-left: 125px;
+    }
+    @include smallPhone{
+        margin-left: 90px;
+        margin-bottom: 10px;
+    }
+}
+.input-invite-text{
+    margin-top: 15px;
+    margin-left:533px;
+    font-weight: bold;
+    height: 35px;
+    width: 135px;
+}
+.submit-invite{
+    margin-top: 15px;
+    margin-left:533px;
+    font-weight: bold;
+    height: 35px;
+    width: 135px;
+}
+.leave-trip-button{
+    margin-top: 20px;
+    margin-left: 30px;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+.leave-trip-button2{
+    margin-top: 10px;
+    margin-left: 552px;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+.modify-trip-container{
+    margin-top:  -40px;
+    margin-left: 175px;
+    width: 222px;
+    .delete-trip-button{
+        height: 30px;
+        width: 90px;
+        color: white;
+        font-size: 12px;
+        background-image: radial-gradient(circle at 10%-96%,silver, red);
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+        margin-left: 2px;
+        margin-top: 10px;
+        @include largePhone{
+            margin-top:  30px;
+            margin-left: 20px;
+        }
+    }
+    .modify-trip-button{
+        height: 30px;
+        width: 90px;
+        color: white;
+        font-size: 12px;
+        background-image: radial-gradient(circle at 10%-96%,silver, blue);
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+        margin-left: 28px;
+        margin-top: 10px;
+        @include largePhone{
+            margin-left: 20px;
+        }
+    }
+    .leave-trip-button{
+        margin-top: 50px;
+        margin-left: 10px;
+        
+    }
+}
+.new-trip-container{
+    margin-left: 200px;
+    margin-top:20px;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+    width:440px;
+    height: 550px;
+    font-family: 'Kanit', sans-serif;
+    @include largePhone{
+        margin-left: 45px;
+        width:300px;
+    }
+    @include smallPhone{
+        margin-left: 35px;
+        width: 250px;
+    }
+}
+.add-trip-input-box{
+   
+    margin-left:40px;
+    margin-top: 10px; 
+    @include smallPhone{
+        margin-left: 10px;
+    }
+}
+.new-trip-input{
+    font-size: 13px;
+    height: 20px;
+    width: 195px;
+    margin-left: 20px;
+    margin-top: 0px;
+
+}
+.create-trip-buttons{
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+}
+.trip-cancel-button{
+    margin-top:20px;
+    margin-left: 50px;
+    font-weight: bold;
+    height: 30px;
+    width: 107px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    @include smallPhone{
+        margin-left: 15px;
+    }
+}
+.trip-create-button{
+    height: 30px;
+    width: 107px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: radial-gradient(circle at 10%-96%,silver, blue);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.new-trip-text{
+    font-family: 'Kanit', sans-serif;
+    margin-left: 5px;
+    font-size: 20px;
+    padding-top: 10px;
+    @include smallPhone{
+        font-size: 17px;
+        margin-left: 11px;
+    }
+}
+.profile-input-container{
+    margin-left: 200px;
+    margin-top:20px;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0, 0.1), 0 3px 2px 0 rgba(0,0,0,0.2);
+    width:400px;
+    height: 520px;
+    font-family: 'Kanit', sans-serif;
+    padding-left: 20px;
+    @include largePhone{
+        margin-left: 35px;
+        width:280px;
+    }
+}
+.edit-profile-text{
+    font-family: 'Kanit', sans-serif;
+    margin-left: 5px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.edit-profile-button-container{
+    display: flex;
+    align-items: right;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+    align-content: center;
+    @include largePhone{
+        margin-left: -40px;
+    }
+}
+.cancel-button{
+    margin-top:20px;
+    margin-left: 50px;
+    font-weight: bold;
+    height: 30px;
+    width: 107px;
+    color: black;
+    font-size: 12px;
+    background-image: radial-gradient(circle at 10%-96%,silver);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+.save-button{
+    height: 30px;
+    width: 107px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: radial-gradient(circle at 10%-96%,silver, blue);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.2);
+    margin-left: 5px;
+    margin-top: 20px;
+}
